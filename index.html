@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLAZO STORE</title>
+    <title>Tienda de Camisetas de Fútbol - Liga Santander</title>
     <style>
         /* Estilos generales para el cuerpo de la página */
         body {
@@ -36,17 +36,23 @@
             width: 30px;
             height: 30px;
         }
+        /* Estilos para el enlace de Instagram */
+        #instagram-link {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            cursor: pointer;
+        }
+        #instagram-link img {
+            width: 30px;
+            height: 30px;
+        }
         /* Estilos para la barra de navegación */
         nav {
             display: flex;
             justify-content: center;
             background-color: #444;
             padding: 0.5rem 0;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
         }
         /* Estilos para el contenedor principal */
         .container {
@@ -135,35 +141,28 @@
             position: relative;
             z-index: 2;
         }
-        /* Estilos para la barra de desplazamiento */
-        ::-webkit-scrollbar {
-            width: 12px; /* Ancho de la barra de desplazamiento */
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent; /* Fondo de la pista de la barra de desplazamiento */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.5); /* Color del pulgar de la barra de desplazamiento */
-            border-radius: 6px; /* Bordes redondeados del pulgar */
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.7); /* Color del pulgar al pasar el ratón */
-        }
     </style>
 </head>
 <body>
     <!-- Encabezado de la página -->
     <header>
-        <h1>Golazo Store</h1>
+        <a id="instagram-link" href="https://www.instagram.com/tu_tienda" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <h1>Tienda de Camisetas de Fútbol - Liga Santander</h1>
         <div id="cart-icon" onclick="location.href='cart.html'">
             <img src="https://github.com/javier306/Golazo-store/blob/main/png-clipart-shopping-cart-shopping-cart-thumbnail.png?raw=true" alt="Carrito de Compras">
         </div>
     </header>
+    <!-- Barra de navegación -->
+    <nav>
+        <!-- Enlaces eliminados, pero la barra de navegación permanece -->
+    </nav>
     <!-- Contenedor principal para las secciones de los equipos -->
     <div id="teams-container"></div>
     <!-- Pie de página -->
     <footer>
-        <p>&copy; 2023 Golazo Store. Todos los derechos reservados.</p>
+        <p>&copy; 2023 Tienda de Camisetas de Fútbol - Liga Santander. Todos los derechos reservados.</p>
     </footer>
     <script>
         const teamNames = [
