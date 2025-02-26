@@ -135,6 +135,20 @@
             position: relative;
             z-index: 2;
         }
+        /* Estilos para la barra de desplazamiento */
+        ::-webkit-scrollbar {
+            width: 12px; /* Ancho de la barra de desplazamiento */
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Fondo de la pista de la barra de desplazamiento */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.5); /* Color del pulgar de la barra de desplazamiento */
+            border-radius: 6px; /* Bordes redondeados del pulgar */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.7); /* Color del pulgar al pasar el ratón */
+        }
     </style>
 </head>
 <body>
