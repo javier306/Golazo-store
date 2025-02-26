@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        /* Estilos generales para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        /* Estilos para el encabezado */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        /* Estilos para el carrito */
+        #cart {
+            width: 80%;
+            margin: 2rem auto;
+            background-color: #fff;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #cart h2 {
+            text-align: center;
+        }
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        #cart-items li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        #cart-items li span {
+            flex: 1;
+        }
+        #cart-items li span:last-child {
+            text-align: right;
+        }
+        .remove-button {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .remove-button:hover {
+            background-color: #ff1a1a;
+        }
+        .cart-item-img {
+            width: 50px;
+            height: auto;
+            margin-right: 1rem;
+        }
+        .back-to-shop {
+            display: block;
+            width: 200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-to-shop:hover {
+            background-color: #555;
+        }
+        .total {
+            text-align: right;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        .pay-button {
+            display: block;
+            width: 200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            text-align: center;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pay-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Carrito de Compras</h1>
+    </header>
+    <!-- Carrito de compras -->
+    <div id="cart">
+        <h2>Carrito de Compras</h2>
+        <ul id="cart-items"></ul>
+        <div class="total" id="total"></div>
+        <a href="file:///C:/Users/jtorr/Downloads/web.4.html" class="back-to-shop">Volver a la tienda</a>
+        <a href="#" class="pay-button">Pagar</a>
+    </div>
+    <script>
+        function loadCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalElement = document.getElementById('total');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('li');
+                cartItem.innerHTML = `
+                    <img src="${item.imageUrl}" alt="Camiseta ${item.teamName}" class="cart-item-img">
+                    <span>${item.teamName} - Camiseta ${item.type}</span>
+                    <span>${item.price}€</span>
+                    <button class="remove-button" onclick="removeFromCart(${index})">Eliminar</button>
+                `;
+                cartItems.appendChild(cartItem);
+                total += item.price;
+            });
+            totalElement.textContent = `Total: ${total}€`;
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Camisetas de Fútbol - Liga Santander</title>
+    <style>
+        /* Estilos generales para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden; /* Evita el desplazamiento horizontal */
+        }
+        /* Estilos para el encabezado */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+        }
+        /* Estilos para el icono del carrito */
+        #cart-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+        }
+        #cart-icon img {
+            width: 30px;
+            height: 30px;
+        }
+        /* Estilos para la barra de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        /* Estilos para el contenedor principal */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 5cm;
+        }
+        /* Estilos para cada producto */
+        .product {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 1rem;
+            text-align: center;
+            width: 5cm;
+            margin-bottom: 2rem;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1rem;
+        }
+        .product h2 {
+            margin: 0 0 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 0.5rem;
+        }
+        .product p {
+            margin: 0 0 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 0.5rem;
+        }
+        .product button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product button:hover {
+            background-color: #555;
+        }
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.05rem 0; /* Ajusta el padding para hacerlo más fino */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        /* Estilos para las secciones de los equipos */
+        .team-section {
+            position: relative;
+            padding: 6rem 0;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+        }
+        .team-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad para hacerlo menos oscuro */
+            z-index: 1;
+        }
+        .team-section h2 {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            padding: 1rem 0;
+        }
+        .team-section .container {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Tienda de Camisetas de Fútbol - Liga Santander</h1>
+        <div id="cart-icon" onclick="location.href='cart.html'">
+            <img src="C:\Users\jtorr\Downloads\png-clipart-shopping-cart-shopping-cart-thumbnail.png" alt="Carrito de Compras">
+        </div>
+    </header>
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Productos</a>
+        <a href="#">Contacto</a>
+    </nav>
+    <!-- Contenedor principal para las secciones de los equipos -->
+    <div id="teams-container"></div>
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 Tienda de Camisetas de Fútbol - Liga Santander. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        const teamNames = [
+            "Real Madrid",
+            "Barcelona",
+            "Atlético de Madrid",
+            "Sevilla",
+            "Valencia",
+            "Villarreal",
+            "Real Betis",
+            "Athletic Club",
+            "Real Sociedad",
+            "Celta de Vigo"
+        ];
+
+        const teamsContainer = document.getElementById('teams-container');
+
+        for (let i = 0; i < teamNames.length; i++) {
+            const teamSection = document.createElement('div');
+            teamSection.className = 'team-section';
+            teamSection.style.backgroundImage = `url('C:/Users/jtorr/Desktop/banderas equipos/b${i + 1}.jpg')`;
+
+            teamSection.innerHTML = `
+                <h2>${teamNames[i]}</h2>
+                <div class="container">
+                    <div class="product">
+                        <img src="C:/Users/jtorr/Desktop/camisetas equipos/c${i + 1}1.png" alt="Camiseta Local ${teamNames[i]}">
+                        <h2>Camiseta Local ${teamNames[i]}</h2>
+                        <p>Precio: 50€</p>
+                        <button onclick="addToCart('${teamNames[i]}', 'Local', 'C:/Users/jtorr/Desktop/camisetas equipos/c${i + 1}1.png')">Comprar</button>
+                    </div>
+                    <div class="product">
+                        <img src="C:/Users/jtorr/Desktop/camisetas equipos/c${i + 1}2.png" alt="Camiseta Visitante ${teamNames[i]}">
+                        <h2>Camiseta Visitante ${teamNames[i]}</h2>
+                        <p>Precio: 50€</p>
+                        <button onclick="addToCart('${teamNames[i]}', 'Visitante', 'C:/Users/jtorr/Desktop/camisetas equipos/c${i + 1}2.png')">Comprar</button>
+                    </div>
+                </div>
+            `;
+
+            teamsContainer.appendChild(teamSection);
+        }
+
+        function addToCart(teamName, type, imageUrl) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ teamName, type, price: 50, imageUrl });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${teamName} - Camiseta ${type} añadida al carrito`);
+        }
+    </script>
+</body>
+</html>
