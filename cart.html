@@ -96,9 +96,41 @@
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
+            cursor: pointer;
         }
         .pay-button:hover {
             background-color: #218838;
+        }
+        /* Estilos para el desplegable de métodos de pago */
+        .payment-methods {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            animation: slideDown 0.5s ease-out forwards;
+        }
+        .payment-methods h3 {
+            margin-top: 0;
+        }
+        .payment-methods ul {
+            list-style: none;
+            padding: 0;
+        }
+        .payment-methods li {
+            margin: 0.5rem 0;
+        }
+        @keyframes slideDown {
+            from {
+                max-height: 0;
+                opacity: 0;
+            }
+            to {
+                max-height: 500px;
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -113,7 +145,15 @@
         <ul id="cart-items"></ul>
         <div class="total" id="total"></div>
         <a href="https://javier306.github.io/Golazo-store/" class="back-to-shop">Volver a la tienda</a>
-        <a href="#" class="pay-button">Pagar</a>
+        <div class="pay-button" onclick="togglePaymentMethods()">Pagar</div>
+        <div class="payment-methods" id="payment-methods">
+            <h3>Métodos de Pago</h3>
+            <ul>
+                <li>Tarjeta de Crédito</li>
+                <li>PayPal</li>
+                <li>Transferencia Bancaria</li>
+            </ul>
+        </div>
     </div>
     <script>
         function loadCart() {
@@ -141,6 +181,15 @@
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
             loadCart();
+        }
+
+        function togglePaymentMethods() {
+            const paymentMethods = document.getElementById('payment-methods');
+            if (paymentMethods.style.display === 'none' || paymentMethods.style.display === '') {
+                paymentMethods.style.display = 'block';
+            } else {
+                paymentMethods.style.display = 'none';
+            }
         }
 
         window.onload = loadCart;
