@@ -126,6 +126,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
         .payment-methods li img {
             width: 30px; /* Tamaño aumentado en 1/2 */
@@ -135,9 +136,29 @@
         .payment-methods a {
             color: #000; /* Color negro */
             text-decoration: none; /* Sin subrayado */
+            position: relative;
         }
         .payment-methods a:hover {
-            text-decoration: underline; /* Subrayado al pasar el ratón */
+            text-decoration: none; /* Sin subrayado al pasar el ratón */
+        }
+        .payment-methods a::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            font-size: 0.8rem;
+        }
+        .payment-methods a:hover::after {
+            opacity: 1;
         }
     </style>
 </head>
@@ -156,9 +177,9 @@
         <div class="payment-methods" id="payment-methods">
             <h3>Métodos de Pago</h3>
             <ul>
-                <li><a href="https://www.visa.com" target="_blank"><img src="https://github.com/javier306/Golazo-store/blob/main/icono_visa.png?raw=true" alt="Tarjeta de Crédito">Tarjeta de Crédito</a></li>
-                <li><a href="https://www.paypal.com" target="_blank"><img src="https://github.com/javier306/Golazo-store/blob/main/paypal_icono.png?raw=true" alt="PayPal">PayPal</a></li>
-                <li><a href="https://www.yourbank.com" target="_blank"><img src="https://github.com/javier306/Golazo-store/blob/main/transfer_icono.png?raw=true" alt="Transferencia Bancaria">Transferencia Bancaria</a></li>
+                <li><a href="https://www.visa.com" target="_blank" data-tooltip="Tarjeta de Crédito"><img src="https://github.com/javier306/Golazo-store/blob/main/icono_visa.png?raw=true" alt="Tarjeta de Crédito"></a></li>
+                <li><a href="https://www.paypal.com" target="_blank" data-tooltip="PayPal"><img src="https://github.com/javier306/Golazo-store/blob/main/paypal_icono.png?raw=true" alt="PayPal"></a></li>
+                <li><a href="https://www.yourbank.com" target="_blank" data-tooltip="Transferencia Bancaria"><img src="https://github.com/javier306/Golazo-store/blob/main/transfer_icono.png?raw=true" alt="Transferencia Bancaria"></a></li>
             </ul>
         </div>
     </div>
