@@ -186,24 +186,24 @@
             const teamSection = document.createElement('div');
             teamSection.className = 'team-section';
             teamSection.style.backgroundImage = `url('https://github.com/javier306/Golazo-store/blob/main/banderas%20equipos/b${i + 1}.jpg?raw=true')`;
-
+        
             teamSection.innerHTML = `
-                <h2>${teamNames[i]}</h2>
-                <div class="container">
-                    <div class="product">
-                        <img src="https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}1.png?raw=true" alt="Camiseta Local ${teamNames[i]}">
-                        <h2>Camiseta Local ${teamNames[i]}</h2>
-                        <p>Precio: 50€</p>
-                        <button onclick="addToCart('${teamNames[i]}', 'Local', 'https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}1.png?raw=true')">Comprar</button>
-                    </div>
-                    <div class="product">
-                        <img src="https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}2.png?raw=true" alt="Camiseta Visitante ${teamNames[i]}">
-                        <h2>Camiseta Visitante ${teamNames[i]}"></h2>
-                        <p>Precio: 50€</p>
-                        <button onclick="addToCart('${teamNames[i]}', 'Visitante', 'https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}2.png?raw=true')">Comprar</button>
-                    </div>
+            <h2>${teamNames[i]}</h2>
+            <div class="container">
+                <div class="product">
+                    <img src="https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}1.png?raw=true" alt="Camiseta Local ${teamNames[i]}">
+                    <h2>Camiseta Local ${teamNames[i]}</h2>
+                    <p>Precio: 50€</p>
+                    <button onclick="addToCart('${teamNames[i]}', 'Local', 'https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}1.png?raw=true')">Comprar</button>
                 </div>
-            `;
+                <div class="product">
+                    <img src="https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}2.png?raw=true" alt="Camiseta Visitante ${teamNames[i]}">
+                    <h2>Camiseta Visitante ${teamNames[i]}</h2>
+                    <p>Precio: 50€</p>
+                    <button onclick="addToCart('${teamNames[i]}', 'Visitante', 'https://github.com/javier306/Golazo-store/blob/main/camisetas%20equipos/c${i + 1}2.png?raw=true')">Comprar</button>
+                </div>
+            </div>
+        `;
 
             teamsContainer.appendChild(teamSection);
         }
